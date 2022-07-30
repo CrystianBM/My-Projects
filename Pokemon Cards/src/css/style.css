@@ -1,0 +1,145 @@
+body {
+    font-family: 'Outfit', sans-serif;
+    background-image: url(../images/fundo-site.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+}
+
+.cabecalho {
+    background-color: rgb(56, 56, 56);
+    display: flex;
+    min-width: 200px;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin: 7% 38vw;
+
+    border-radius: 30px;
+}
+
+.cabecalho .titulo {
+    color: whitesmoke;
+}
+
+.cabecalho .pokebola {
+    width: 20px;
+    height: 20px;
+}
+
+.pokemon-slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 80px;
+    margin: 60px 0;
+}
+
+.pokemon-list {
+    width: 310px;
+    height: 520px;
+    position: relative;
+}
+
+.btn-seta {
+    background-color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+    border: 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.btn-seta.btn-voltar {
+    transform: rotateY(180deg);
+}
+
+.btn-seta:hover {
+    background-color: steelblue;
+}
+
+.card {
+    background-color: blueviolet;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute;
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.card.selected {
+    opacity: 1;
+    z-index: 1;
+}
+
+.fundo-1 {
+    background: url(../images/fundo-card-1.jpg) no-repeat;
+}
+
+.fundo-2 {
+    background: url(../images/fundo-card-2.jpg) no-repeat;
+}
+
+.fundo-3 {
+    background: url(../images/fundo-card-3.jpg) no-repeat;
+}
+
+.card .info {
+    background-color: rgba(159, 157, 165, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 10px;
+    border-radius: 10px;
+}
+
+.card .info .name {
+    color: whitesmoke;
+    font-size: 22px;
+}
+
+.card .info .health {
+    background-color: rgb(34, 34, 34);
+    color: whitesmoke;
+    padding: 6px 10px;
+    border-radius: 20px;
+}
+
+.card .image-container {
+    text-align: center;
+}
+
+.card .pokemon-image {
+    max-width: 100%;
+    max-height: 280px;
+    padding: 20px;
+}
+
+.card .description {
+    background: rgba(225, 225, 225, 0.7);
+    border-radius: 15px;
+}
+
+.card .description .titulo {
+    background-color: rgb(39, 39, 39);
+    color: whitesmoke;
+    font-size: 15px;
+    padding: 12px;
+}
+
+.card .description .text {
+    font-size: 14px;
+    padding: 12px;
+    text-align: justify;
+    max-height: 115px;
+    overflow-y: auto;
+}
