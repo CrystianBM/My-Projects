@@ -1,0 +1,92 @@
+.body{
+    height: 100vh;
+    background-color: rgb(116, 70, 116);
+}
+
+.titulo {
+    color: rgb(0, 6, 61);
+    background-color: rgb(151, 182, 105);
+    padding-left: 1%;
+    padding-top: 2%;
+    padding-bottom: 1.5%;
+    border-bottom: 8px solid rgb(18, 0, 68);
+}
+
+h3 {
+    color: whitesmoke;
+}
+
+form {
+    text-align: justify;
+    height: 300px;
+    width: 560px;
+    background-color: brown;
+    padding: 20px;
+    border: 3px solid rgb(109, 28, 28);
+    border-radius: 20px;
+}
+
+.th-color {
+    background-color: rgb(196, 52, 52);
+}
+
+.form-item{
+    color: black;
+    font-weight: bold;
+}
+
+.table-color{
+    color: black;
+    background-color: rgb(129, 161, 153);
+}
+
+.rodape{
+    width: 100%;
+    color: white;
+    background-color: black;
+    text-align: right;
+    padding-bottom: 1px;
+    padding-right: 10px;
+}
+
+.aviso{
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.erro{
+    color: red;
+}
+
+.certo {
+    color: rgb(9, 255, 0)
+}
+
+.r1 {
+    position: absolute;
+    margin-top: 38.8vh;
+}
+
+.r2 {
+    position: static;
+    margin-top: 43vh;
+}
+
+.r3{
+    position: absolute;
+    margin-top: 39vh;
+}
+
+.form-wrapper {
+    padding-top: 4%;
+    padding-left: 2%;
+}
+
+.form-item {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.button-panel {
+    flex: content;
+}
