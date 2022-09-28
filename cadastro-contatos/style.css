@@ -1,49 +1,153 @@
 .body{
     height: 100vh;
-    background-color: rgb(116, 70, 116);
+    background-color: #20758a;
 }
 
 .titulo {
     color: rgb(0, 6, 61);
-    background-color: rgb(151, 182, 105);
+    background-color: #AEEEFF;
     padding-left: 1%;
     padding-top: 2%;
     padding-bottom: 1.5%;
-    border-bottom: 8px solid rgb(18, 0, 68);
+    border-bottom: 8px solid #072A40;
+}
+
+.linkMenu{
+    color: #111152;
+    text-decoration: none;
+}
+
+.linkTableCad{
+    color: #111152;
+    text-decoration: none;
+}
+
+.tableMenu{
+    margin: 0;
+    width: 100% ;
+    height: 50px;
+}
+
+.menu{
+    background-color: #2ca4c2;
+}
+
+.thMenu{
+    color: #111152 !important;
+    text-align: center;
+    width: 20%;
+    border: 3px solid #268ea8 !important;
+}
+
+.logout{
+    float: right;
+    margin-right: 20px;
+}
+
+.cads-salvo {
+    width: 270px;
+    border: 2px solid #28559A;
+    border-radius: 10px;
+    background-color: #85d8ff;
+    padding: 10px;
 }
 
 h3 {
-    color: whitesmoke;
+    color: #0F2557;
 }
 
-form {
-    text-align: justify;
-    height: 300px;
-    width: 560px;
-    background-color: brown;
-    padding: 20px;
-    border: 3px solid rgb(109, 28, 28);
+.formMisc {
+    margin: 0 auto;
+    text-align: center;
+    height:60%;
+    width:80%;
+    background-color: #63BCE5;
+    border: 3px solid #28559A;
     border-radius: 20px;
 }
 
-.th-color {
-    background-color: rgb(196, 52, 52);
+.formMiscItem{
+    font-size: 45px;
+    position:relative;
+    top: 20%;
+}
+
+.form {
+    text-align: justify;
+    height: 300px;
+    width: 560px;
+    background-color: #63BCE5;
+    padding: 20px;
+    border: 3px solid #28559A;
+    border-radius: 20px;
+}
+
+.form-juros {
+    text-align: justify;
+    height: 500px;
+    width: 1100px;
+    background-color: #63BCE5;
+    border: 3px solid #28559A;
+    border-radius: 20px;
+    margin: 0 auto;
+}
+
+.tr-color {
+    background-color: #1e3185;
+}
+
+th{
+    color: #63BCE5 !important;
+}
+
+td {
+    color: #150734 !important;
+    font-weight: 700;
+    background-color: #63BCE5;
+}
+
+.thExibir{
+    padding: 5px !important;
+}
+
+.tdExibir{
+    padding: 5px !important;
+}
+table {
+    width: 97%;
+}
+
+table, td, th {
+    border-color: #111152 !important;
 }
 
 .form-item{
-    color: black;
+    color: #150734;
     font-weight: bold;
 }
 
 .table-color{
-    color: black;
-    background-color: rgb(129, 161, 153);
+    background-color: #63BCE5;
+}
+
+.tableMisc{
+    margin-top: 100px;
+    margin: 0 auto;
+    width: 90%;
+}
+
+.tdMisc{
+    background-color: #ffffff00 !important;
+    margin: auto;
+    height: 200px;
+    width: 33%;
+    padding: 5px !important;
 }
 
 .rodape{
     width: 100%;
-    color: white;
-    background-color: black;
+    color: #63BCE5;
+    background-color: #150734;
     text-align: right;
     padding-bottom: 1px;
     padding-right: 10px;
@@ -77,9 +181,19 @@ form {
     margin-top: 39vh;
 }
 
-.form-wrapper {
-    padding-top: 4%;
-    padding-left: 2%;
+.form-wrapper-exibir{
+    padding-top: 8%;
+    padding-left: 3%;
+}
+
+.form-wrapper-juros{
+    padding-top: 8%;
+    padding-left: 3%;
+}
+
+.form-wrapper-cadLogin{
+    padding-top: 8%;
+    padding-left: 30%;
 }
 
 .form-item {
@@ -88,5 +202,36 @@ form {
 }
 
 .button-panel {
+    margin-top: 30px;
     flex: content;
+}
+
+.tableJuros{
+    margin: 0 auto;
+    width:100%;
+    height:100%;
+    border-radius: 20px;
+}
+
+.tdJuros{
+    background-color: #ffffff00 !important;
+    margin: 0 auto;
+    height: 200px;
+    width: 50%;
+    padding-left: 25px;
+}
+
+.tdJuros.v1{
+    border-right: 3px solid #28559A !important; 
+    border-bottom: 3px solid #28559A !important;
+}
+
+.tdJuros.v2{
+    border-left: 3px solid #28559A !important;
+    border-top: 3px solid #28559A !important;
+}
+
+.parcela{
+    direction: rtl;
+    text-align: left;
 }

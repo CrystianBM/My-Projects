@@ -10,13 +10,13 @@ if ($conn){
     echo '
     <script>
     alert ("Usuário deletado com sucesso.")
-    location.href = "exibir.php"
+    location.href = "exibir-contatos.php"
     </script>';
 }else{
     echo '
     <script> 
     alert ("Não foi possível deletar o usuário.")
-    location.href = "exibir.php"
+    location.href = "exibir-contatos.php"
     </script>';
 }
 
