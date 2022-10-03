@@ -17,7 +17,7 @@ include('dbcon.php');
 
 <body class="body">
 
-<h2 class="titulo"> Sistema de cadastro de contatos
+<h2 class="titulo"> Cadastro de contatos
 	<a href="index.php"> 
         <button type="button" class="btn btn-primary logout" data-bs-toggle="button" title="Register" name="register" value="Registrar">Logout</button> 
     </a>
@@ -26,7 +26,7 @@ include('dbcon.php');
 <table class="tableMenu">
     <tr class="menu">
         <th class="thMenu"><a href="home.php" class="linkMenu">Home</a></th>
-        <th class="thMenu"><a href="cadastro-usuario.php" class="linkMenu">Cadastrar Usuario</a></th>
+        <th class="thMenu"><a href="cadastro-usuarios.php" class="linkMenu">Cadastrar Usuario</a></th>
         <th class="thMenu"><a href="cadastro-contatos.php" class="linkMenu">Cadastrar Contato</a></th>
         <th class="thMenu"><a href="exibir-contatos.php" class="linkMenu">Exibir Contatos</a></th>
         <th class="thMenu"><a href="misc.php" class="linkMenu">Outros</a></th>
@@ -66,7 +66,7 @@ include('dbcon.php');
 		$telefone =  preg_replace('/\(|\)|-|\ /', '', $_REQUEST["tel"]);
 		$dataCadastro = date('Y-m-d');
 
-		$sql = "INSERT INTO registros (data_cadastro, nome, anoNasc, telefone) VALUES ('$dataCadastro','$nome', '$anoNasc', '$telefone')";
+		$sql = "INSERT INTO contatosgistros (data_cadastro, nome, anoNasc, telefone) VALUES ('$dataCadastro','$nome', '$anoNasc', '$telefone')";
 
 		$con->query($sql);
 		
@@ -80,7 +80,7 @@ include('dbcon.php');
 	</form>
 
 <script type="text/javascript">
-    $("#tel").mask("(00) 00000-0000");
+    $("#tel").mask("(00) 0 0000-0000");
 </script>
 
 </div>

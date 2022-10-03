@@ -26,7 +26,7 @@ include('dbcon.php');
 <table class="tableMenu">
     <tr class="menu">
         <th class="thMenu"><a href="home.php" class="linkMenu">Home</a></th>
-        <th class="thMenu"><a href="cadastro-usuario.php" class="linkMenu">Cadastrar Usuario</a></th>
+        <th class="thMenu"><a href="cadastro-usuarios.php" class="linkMenu">Cadastrar Usuario</a></th>
         <th class="thMenu"><a href="cadastro-contatos.php" class="linkMenu">Cadastrar Contato</a></th>
         <th class="thMenu"><a href="exibir-contatos.php" class="linkMenu">Exibir Contatos</a></th>
         <th class="thMenu"><a href="misc.php" class="linkMenu">Outros</a></th>

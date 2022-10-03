@@ -1,9 +1,11 @@
 <?php 
 
 include('dbcon.php');
+include('functions.php');
 $id_usuario = intval($_GET["usuario"]);
-$dados = "SELECT * FROM registros WHERE id = '$id_usuario'";
-
+$dados = "SELECT * FROM contatos WHERE id = '$id_usuario'";
+$conn = $con->query($dados) or die($con->error);
+$dados2 = $conn->fetch(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -17,9 +19,12 @@ $dados = "SELECT * FROM registros WHERE id = '$id_usuario'";
 
 <title> Editar cadastro </title>
 
+
 </head>
 
 <body class="body">
+
+
 <h2 class="titulo"> Edição de cadastro
 	<a href="index.php"> 
         <button type="button" class="btn btn-primary logout" data-bs-toggle="button" title="Register" name="register" value="Registrar">Logout</button> 
@@ -29,7 +34,7 @@ $dados = "SELECT * FROM registros WHERE id = '$id_usuario'";
 <table class="tableMenu">
     <tr class="menu">
         <th class="thMenu"><a href="home.php" class="linkMenu">Home</a></th>
-        <th class="thMenu"><a href="cadastro-usuario.php" class="linkMenu">Cadastrar Usuario</a></th>
+        <th class="thMenu"><a href="cadastro-usuarios.php" class="linkMenu">Cadastrar Usuario</a></th>
         <th class="thMenu"><a href="cadastro-contatos.php" class="linkMenu">Cadastrar Contato</a></th>
         <th class="thMenu"><a href="exibir-contatos.php" class="linkMenu">Exibir Contatos</a></th>
         <th class="thMenu"><a href="misc.php" class="linkMenu">Outros</a></th>
@@ -42,15 +47,15 @@ $dados = "SELECT * FROM registros WHERE id = '$id_usuario'";
     	<h3> Insira os dados para editar cadastro:</h3>
 		
 		<div class="form-item">
-			Nome Completo: <input type="text" name="nome" required="required" placeholder="Nome completo" id="nome" autofocus required></input>
+			Nome Completo: <input type="text" name="nome" required="required" id="nome" value = "<?= $dados2["nome"]?>" autofocus required></input>
 		</div>
 		
 		<div class="form-item">
-			Idade: <input type="text" name="idade" required="required" placeholder="Idade" id="idade" required ></input>
+			Idade: <input type="text" name="idade" required="required" id="idade" value="<?= date("Y") - $dados2["anoNasc"]?>" required ></input>
 		</div>
 
 		<div class="form-item">
-			Telefone: <input type="text" name="tel" required="required" placeholder="(00) 00000-0000" id="tel" required></input>
+			Telefone: <input type="text" name="tel" required="required" id="tel" value = "<?= mask(strval($dados2["telefone"]), "(##) #####-####")?>" required></input>
 		</div>
 		
 		<div class="button-panel">
@@ -66,9 +71,9 @@ $dados = "SELECT * FROM registros WHERE id = '$id_usuario'";
     {
 		$nome = $_REQUEST["nome"];
 		$anoNasc = date('Y') - intval($_REQUEST["idade"]);
-		$telefone = $_REQUEST["tel"];
+		$telefone = preg_replace('/\(|\)|-|\ /', '', $_REQUEST["tel"]);
 
-		$sql = "UPDATE registros SET 
+		$sql = "UPDATE contatos SET 
         nome = '$nome',
         anoNasc = '$anoNasc',
         telefone = '$telefone'
@@ -81,21 +86,29 @@ $dados = "SELECT * FROM registros WHERE id = '$id_usuario'";
         }else{
             echo("<h5 class='aviso erro'>Erro ao salvar edições. Tente novamente.");
         }
- 
-
+		?>
+		<script>
+			document.getElementById("nome").value = "";
+			document.getElementById("idade").value = "";
+			document.getElementById("tel").value = "";
+        </script>
+	<?php
 	}
   	?>
+
+
 
 	</form>
 		
 </div>
 
 <script type="text/javascript">
-    $("#tel").mask("(00) 0000-0000");
+    $("#tel").mask("(00) 0 0000-0000");
 </script>
 
 <div class="rodape r3">
 	<h6> ® Crystian Marques 2022. Todos os direitos reservados. </h6>
 </div>
+
 </body>
 </html>

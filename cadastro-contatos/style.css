@@ -82,6 +82,10 @@ h3 {
     border-radius: 20px;
 }
 
+.form.usuarios{
+    height: 370px !important;
+}
+
 .form-juros {
     text-align: justify;
     height: 500px;
@@ -229,9 +233,4 @@ table, td, th {
 .tdJuros.v2{
     border-left: 3px solid #28559A !important;
     border-top: 3px solid #28559A !important;
-}
-
-.parcela{
-    direction: rtl;
-    text-align: left;
 }

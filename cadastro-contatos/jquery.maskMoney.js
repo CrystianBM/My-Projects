@@ -8,7 +8,7 @@
         $.browser.msie = /msie/.test(navigator.userAgent.toLowerCase());
         $.browser.device = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(navigator.userAgent.toLowerCase());
     }
-//oi
+
     var defaultOptions = {
                 prefix: "",
                 suffix: "",
