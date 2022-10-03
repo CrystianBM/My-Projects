@@ -33,27 +33,35 @@ include('dbcon.php');
     </tr>
 </table>
 
-<div class="form-wrapper-juros">
+<div class="form-wrapper-juros" style="padding-left: 120px !important;">
   
-  	<form class="form" action="#" method="post">
+  	<form class="form usuarios" action="#" method="post">
     	<h3> Por favor, insira os dados para cadastro:</h3>
 		
 		<div class="form-item">
-			Nome Completo: <input type="text" name="nome" required="required" placeholder="Nome completo" id="nome" autofocus required></input>
+			Nome de usuário: <input type="text" style="width: 262px;" name="username" required="required" placeholder="Username" id="username" autofocus required></input>
+		</div>
+        
+        <div class="form-item">
+			Nome Completo: <input type="text" style="width: 267px;" name="name" required="required" placeholder="Nome completo" id="name" required></input>
 		</div>
 		
 		<div class="form-item">
-			Idade: <input type="text" name="idade" required="required" placeholder="Idade" id="idade" required></input>
+			Email: <input type="text" style="width: 349px;" name="email" required="required" placeholder="exemplo.email@gmail.com" id="email" required></input>
 		</div>
 
 		<div class="form-item">
-			Telefone: <input type="text" name="tel" required="required" placeholder="(00) 00000-0000" id="tel" required></input>
+			Senha: <input type="text" style="width: 345px;" name="senha" required="required" placeholder="Senha de 6 dígitos" id="senha" required></input>
+		</div>
+
+        <div class="form-item">
+			Confirmar senha: <input type="text" style="width: 266px;" name="senha2" required="required" placeholder="Confirme a senha" id="senha2" required></input>
 		</div>
 		
 		<div class="button-panel">
 			<button type="submit" class="btn btn-primary" data-bs-toggle="button" title="Register" name="register" value="Registrar">Registrar</button>
 			&ensp;
-			<a style="float: right;" href="exibir-contatos.php">
+			<a style="float: right;" href="exibir-usuarios.php">
 			<button type="button" class="btn btn-primary" data-bs-toggle="button" title="Register" name="register" value="Registrar">Exibir Registros</button>
 			</a>
 		</div>
@@ -66,7 +74,7 @@ include('dbcon.php');
 		$telefone =  preg_replace('/\(|\)|-|\ /', '', $_REQUEST["tel"]);
 		$dataCadastro = date('Y-m-d');
 
-		$sql = "INSERT INTO contatosgistros (data_cadastro, nome, anoNasc, telefone) VALUES ('$dataCadastro','$nome', '$anoNasc', '$telefone')";
+		$sql = "INSERT INTO usuarios (data_cadastro, nome, anoNasc, telefone) VALUES ('$dataCadastro','$nome', '$anoNasc', '$telefone')";
 
 		$con->query($sql);
 		
@@ -78,10 +86,6 @@ include('dbcon.php');
 	}
   	?>
 	</form>
-
-<script type="text/javascript">
-    $("#tel").mask("(00) 0 0000-0000");
-</script>
 
 </div>
 

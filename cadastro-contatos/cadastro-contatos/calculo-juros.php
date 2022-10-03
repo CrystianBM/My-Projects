@@ -5,10 +5,11 @@ include('dbcon.php');
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="datepicker.material.css">
-<script src="datepicker.js"></script>
+<script src="assets/js/function.js"></script>
+<link rel="stylesheet" href="assets/css/datepicker.material.css">
+<script src="assets/js/datepicker.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
-<script src="jquery.maskMoney.js" type="text/javascript"></script>
+<script src="assets/js/jquery.maskMoney.js" type="text/javascript"></script>
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js"></script>
@@ -34,7 +35,7 @@ include('dbcon.php');
 <table class="tableMenu">
     <tr class="menu">
         <th class="thMenu"><a href="home.php" class="linkMenu">Home</a></th>
-        <th class="thMenu"><a href="cadastro-usuario.php" class="linkMenu">Cadastrar Usuario</a></th>
+        <th class="thMenu"><a href="cadastro-usuarios.php" class="linkMenu">Cadastrar Usuario</a></th>
         <th class="thMenu"><a href="cadastro-contatos.php" class="linkMenu">Cadastrar Contato</a></th>
         <th class="thMenu"><a href="exibir-contatos.php" class="linkMenu">Exibir Contatos</a></th>
         <th class="thMenu"><a href="misc.php" class="linkMenu">Outros</a></th>
@@ -72,6 +73,7 @@ include('dbcon.php');
         </table>
         <br>
         <button type="submit" class="btn btn-primary" data-bs-toggle="button" id="calcular" name="calcular" value="Calcular">Calcular</button>
+        <button type="submit" class="btn btn-primary" data-bs-toggle="button" id="limpar" name="limpar" value="Limpar">Limpar</button>
 	<?php
 	if (isset($_POST['calcular']))
     {   
@@ -81,7 +83,6 @@ include('dbcon.php');
         }else{
             $actDate = explode("-", date("d-m-Y"));
             $valParcela = floatval(str_replace("R$ ", "", str_replace(",", ".", str_replace(".", "", $_REQUEST["parcela"]))));
-            $valParc = $_REQUEST["parcela"];
             $valFinal = $valParcela + $valParcela * 5 / 100;
             $valJuros = 0;
 
@@ -95,9 +96,13 @@ include('dbcon.php');
                 ?>
                 <script>
                     var valFinal = document.getElementById("totalComJuros");
-                    <?php echo "valFinal.value = parseFloat($valParcela).toFixed(2);"?>;
+                    valFinal.value = "<?=$_REQUEST["parcela"]?>";
                     var valJuros = document.getElementById("totalDeJuros");
-                    <?php echo "valJuros.value = parseFloat($valJuros).toFixed(2);"?>;
+                    valJuros.value = "R$ 0,00";
+                    var valParc = document.getElementById("parcela")
+                    valParc.value = "<?= $_REQUEST["parcela"]?>";
+                    var valDate = document.getElementById("data");
+                    valDate.value = "<?=$_REQUEST["data"]?>";
                 </script>
                 <?php
             }else{
@@ -107,23 +112,12 @@ include('dbcon.php');
                         $valFinal = $valFinal + $valParcela * 5 / 100;
                         $valJuros = $valJuros + $valParcela * 5 / 100;
                     }else{
-                        $valFinal = $valFinal + $valParcela * 32/1000;
-                        $valJuros = $valJuros + $valParcela * 32/1000;
+                        $valFinal = $valFinal + $valParcela * 32/10000;
+                        $valJuros = $valJuros + $valParcela * 32/10000;
                     }
                 }
                 ?>
                 <script>
-
-                    function maskThis(x){
-                        var valArray = String(x.toFixed(2)).split(""); //dividir em array para colocar o "R$ " e pontuação de milhar e decimal entre cada item do array
-                        var valArrayCount = valArray.length;
-                        valArray[valArray.indexOf(".")] = ",";
-                        if (valArrayCount > 6 ){
-                            valArray.splice(1, 0, ".");
-                        }
-                        valArray.unshift("R$ ");
-                        return valArray.join("");
-                    }
 
                     var valFinal1 = document.getElementById("totalComJuros");
                     valFinal1.value = maskThis(<?=$valFinal?>);
@@ -140,7 +134,23 @@ include('dbcon.php');
                 <?php
             }
         }
-	}
+	}else if (isset($_POST['limpar'])){
+        ?>
+        <script>
+            var valFinal1 = document.getElementById("totalComJuros");
+                    valFinal1.value = null;
+
+                    var valJuros1 = document.getElementById("totalDeJuros");
+                    valJuros1.value = null;
+
+                    var valParc = document.getElementById("parcela")
+                    valParc.value = null;
+
+                    var valDate = document.getElementById("data");
+                    valDate.value = null;
+        </script>
+        <?php
+    }
   	?>
     
 </form>

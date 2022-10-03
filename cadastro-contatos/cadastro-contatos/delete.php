@@ -3,7 +3,7 @@
 include("dbcon.php");
 $id_usuario = intval($_GET["usuario"]);
 
-$deletar = "DELETE FROM registros WHERE id = '$id_usuario'";
+$deletar = "DELETE FROM contatos WHERE id = '$id_usuario'";
 $conn = $con->query($deletar) or die($con->error);
 
 if ($conn){
